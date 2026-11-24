@@ -1,0 +1,198 @@
+{
+  "format_version": 1,
+  "synthetic": true,
+  "encoding": "UTF-8",
+  "tables": {
+    "products": {
+      "description": "包装与市场原始记录",
+      "fields": {
+        "id": {
+          "type": "string",
+          "description": "记录的稳定编号"
+        },
+        "family": {
+          "type": "string",
+          "description": "稳定商品家族"
+        },
+        "version": {
+          "type": "number",
+          "description": "家族内包装版本"
+        },
+        "valid_from": {
+          "type": "string",
+          "description": "包装开始适用日期"
+        },
+        "channel": {
+          "type": "string",
+          "description": "销售渠道"
+        },
+        "text": {
+          "type": "string",
+          "description": "包装原文"
+        },
+        "ingredients": {
+          "type": "string",
+          "description": "配料原文"
+        },
+        "basis": {
+          "type": "string",
+          "description": "营养表的基准"
+        },
+        "basis_g": {
+          "type": "number",
+          "description": "对应基准克数"
+        },
+        "sugar_g": {
+          "type": "nullable_number",
+          "description": "该基准下总糖；null表示缺项"
+        },
+        "units_sold": {
+          "type": "number",
+          "description": "对应窗口的实际销量"
+        },
+        "known_at": {
+          "type": "string",
+          "description": "收到包装资料时间"
+        },
+        "print_group": {
+          "type": "string",
+          "description": "同一包装印刷文字的复用组，仍须按意见实际适用规格核实"
+        }
+      },
+      "references": {}
+    },
+    "reviews": {
+      "description": "编辑意见原件，可带有偏选择与撤销",
+      "fields": {
+        "id": {
+          "type": "string",
+          "description": "记录的稳定编号"
+        },
+        "product_id": {
+          "type": "string",
+          "description": "被判读包装"
+        },
+        "reviewer": {
+          "type": "string",
+          "description": "编辑身份键"
+        },
+        "classes": {
+          "type": "array",
+          "description": "一个或多个声明类型"
+        },
+        "status": {
+          "type": "string",
+          "description": "temporary为临时意见，final为定稿"
+        },
+        "selected_by": {
+          "type": "string",
+          "description": "random_audit为概率抽核，suspect_queue为定向疑点"
+        },
+        "selection_probability": {
+          "type": "nullable_number",
+          "description": "有效抽核选中概率，定向记录为空"
+        },
+        "valid_specs": {
+          "type": "array",
+          "description": "意见明确支持的规格版本"
+        },
+        "known_at": {
+          "type": "string",
+          "description": "意见收到时间"
+        },
+        "withdrawn_at": {
+          "type": "nullable_string",
+          "description": "该意见被撤销的时点"
+        }
+      },
+      "references": {
+        "product_id": "products"
+      }
+    },
+    "editors": {
+      "description": "编辑的业务权限与时间",
+      "fields": {
+        "id": {
+          "type": "string",
+          "description": "记录的稳定编号"
+        },
+        "classes": {
+          "type": "array",
+          "description": "可定稿的声明类型"
+        },
+        "weekly_minutes": {
+          "type": "number",
+          "description": "每周可用分钟"
+        },
+        "can_finalize": {
+          "type": "boolean",
+          "description": "能否给出正式定稿"
+        }
+      },
+      "references": {}
+    },
+    "publication_records": {
+      "description": "栏目已有的采用关系",
+      "fields": {
+        "id": {
+          "type": "string",
+          "description": "记录的稳定编号"
+        },
+        "product_id": {
+          "type": "string",
+          "description": "采用的规格版本"
+        },
+        "review_id": {
+          "type": "string",
+          "description": "当时引用意见"
+        },
+        "column": {
+          "type": "string",
+          "description": "栏目名称"
+        },
+        "adopted_at": {
+          "type": "string",
+          "description": "采用时点"
+        },
+        "model_version": {
+          "type": "string",
+          "description": "提出采用的原模型名称；不包含模型实现"
+        }
+      },
+      "references": {
+        "product_id": "products",
+        "review_id": "reviews"
+      }
+    },
+    "cost_policies": {
+      "description": "业务方提交的处理代价及容限",
+      "fields": {
+        "id": {
+          "type": "string",
+          "description": "记录的稳定编号"
+        },
+        "class_name": {
+          "type": "string",
+          "description": "声明类型"
+        },
+        "false_release_cost": {
+          "type": "number",
+          "description": "误放相对业务代价"
+        },
+        "miss_cost": {
+          "type": "number",
+          "description": "漏收相对代价"
+        },
+        "maximum_error": {
+          "type": "number",
+          "description": "自动采用的错误比例容限"
+        },
+        "review_minutes": {
+          "type": "number",
+          "description": "常规复核所需分钟"
+        }
+      },
+      "references": {}
+    }
+  }
+}

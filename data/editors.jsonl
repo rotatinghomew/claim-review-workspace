@@ -1,0 +1,6 @@
+{"id":"editor0","classes":["未添加某种糖","总糖含量声称","无关口味宣传"],"weekly_minutes":60,"can_finalize":true}
+{"id":"editor1","classes":["未添加某种糖","总糖含量声称","无关口味宣传"],"weekly_minutes":75,"can_finalize":true}
+{"id":"editor2","classes":["未添加某种糖","总糖含量声称","无关口味宣传"],"weekly_minutes":90,"can_finalize":false}
+{"id":"editor3","classes":["未添加某种糖","总糖含量声称","无关口味宣传"],"weekly_minutes":105,"can_finalize":true}
+{"id":"editor4","classes":["无法判断","总糖含量声称"],"weekly_minutes":120,"can_finalize":true}
+{"id":"editor5","classes":["无法判断","总糖含量声称"],"weekly_minutes":135,"can_finalize":false}

@@ -1,0 +1,4 @@
+{"id":"cost0","class_name":"未添加某种糖","false_release_cost":10,"miss_cost":2,"maximum_error":0.05,"review_minutes":4}
+{"id":"cost1","class_name":"总糖含量声称","false_release_cost":13,"miss_cost":2,"maximum_error":0.05,"review_minutes":5}
+{"id":"cost2","class_name":"无关口味宣传","false_release_cost":16,"miss_cost":2,"maximum_error":0.1,"review_minutes":6}
+{"id":"cost3","class_name":"无法判断","false_release_cost":19,"miss_cost":2,"maximum_error":0.05,"review_minutes":7}
